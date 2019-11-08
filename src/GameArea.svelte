@@ -71,8 +71,19 @@
 
       <div class="bottom-buffer">
         <div class="clearfix area-width">
-
-
+          {#each gameCursor as cursor, index}
+            <!-- <li>{cursor}</li> -->
+            <div class="CursorArea">
+              <div style="vertical-align: middle">
+                {#if cursor.player === playerType.One}
+                  <div class="CircleBase CircleRed"></div>
+                {/if}
+                {#if cursor.player === playerType.Two}
+                  <div class="CircleBase CircleYellow"></div>
+                {/if}
+              </div>
+            </div>
+          {/each}
         </div>
       </div>
     </div>
