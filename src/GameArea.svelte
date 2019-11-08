@@ -1,5 +1,38 @@
 <script>
-  
+  const playerType = {
+    One: 1,
+    Two: 2,
+    None: 0
+  };
+
+  const totalRows = 6;
+  const totalColumns = 7;
+
+  const gameCursorNumber = new Array(totalColumns);
+
+  const gameCursor = [];
+
+  function GameCursor(isAvailable, columnIndex, player) {
+    this.isAvailable = isAvailable;
+    this.columnIndex = columnIndex;
+    this.player = player;
+  }
+
+  const loadGameCursor = columnIndex => {
+    for (let index = 0; index < totalColumns; index++) {
+      let cursorObj = new GameCursor(false, index, playerType.None);
+      gameCursor.push(cursorObj);
+    }
+    gameCursor[columnIndex] = new GameCursor(
+      false,
+      columnIndex,
+      playerType.One
+    );
+
+    console.log("gameCursor", gameCursor);
+  };
+
+  loadGameCursor(0);
 </script>
 
 <style>
@@ -39,7 +72,7 @@
       <div class="bottom-buffer">
         <div class="clearfix area-width">
 
-      
+
         </div>
       </div>
     </div>
